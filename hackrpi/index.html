@@ -198,7 +198,7 @@
 						<div class="inner">
 							<section>
 								<h2>Get in touch</h2>
-								<form name="patient" method="post" action="">
+								<form name="patient" method="post" action="" />
 									<div class="fields">
 										<div class="field half">
 											<input type="text" name="name" id="name" placeholder="Name" />
@@ -217,6 +217,13 @@
 											<textarea name="message" id="message" placeholder="Message"></textarea>
 										</div>
 										-->
+									</div>
+									<!--<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>-->
+								</form>
+								<form name="image-upload" method="post" action="http://localhost:5000/parse-image" enctype="multipart/form-data"> <!-- FIXME (localhost) -->
+									<div class="fields">
 										<div class="field">
 										<!--<form action="/action_page.php">-->
 											<input type="file" name="pic" accept="image/*">
@@ -228,15 +235,6 @@
 										<li><input type="submit" value="Send" class="primary" /></li>
 									</ul>
 								</form>
-
-								<script>
-									document.forms["patient"].addEventListener('submit', function(e) {
-										e.preventDefault();
-										const mf = JSON.stringify({"email": document.querySelector('.field [name="email"]').value,
-										"name": document.querySelector('.field [name="name"]').value});
-										console.debug(mf);
-									})
-								</script>
 							</section>
 
 							
@@ -269,6 +267,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/hackrpi.js"></script>
 
 	</body>
 </html>
