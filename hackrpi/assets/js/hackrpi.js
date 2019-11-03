@@ -8,7 +8,7 @@ document.forms["patient"].addEventListener('submit', function(e) {
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/write-data");
+    xhr.open("POST", "/write-data");
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(row));
 })
