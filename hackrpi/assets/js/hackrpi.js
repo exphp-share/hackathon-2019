@@ -16,6 +16,8 @@ document.forms["patient"].addEventListener('submit', function(e) {
 		//"allergy": document.querySelector('.field [name="allergy"]'),
 		"allergy" : splitCommas(getFieldText('allergy')),
 		"currentmed" : splitCommas(getFieldText('currentmed')),
+		"currentdev" : splitCommas(getFieldText('currentdev')),
+		"pastprof" : splitCommas(getFieldText('pastprof')),
 	};
 
 	var xhr = new XMLHttpRequest();
