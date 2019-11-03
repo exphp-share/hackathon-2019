@@ -12,6 +12,7 @@ document.forms["patient"].addEventListener('submit', function(e) {
 	const mf = {
 		"email": getFieldText('email'),
 		"name": getFieldText('name'),
+		"dob": getFieldText('dob'),
 		"pin": getFieldText('pin'),
 		//"allergy": document.querySelector('.field [name="allergy"]'),
 		"allergy" : splitCommas(getFieldText('allergy')),
