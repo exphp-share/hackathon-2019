@@ -1,10 +1,12 @@
 from flask import Flask, request
+import database as db
+
 app = Flask(__name__)
 
 @app.route('/write-data', methods=['POST'])
 def write_data():
-    print(request.get_json())
-    return 'Hello World!'
+    db.insert_row(db.DEFAULT_PATH, request.get_json())
+    return 'Success!'
 
 @app.route('/read-data', methods=['POST'])
 def read_data():
