@@ -1,14 +1,27 @@
 document.forms["patient"].addEventListener('submit', function(e) {
-    e.preventDefault();
-    const row = {
-        "email": document.querySelector('.field [name="email"]').value,
-        "name": document.querySelector('.field [name="name"]').value,
-        "pin": document.querySelector('.field [name="pin"]').value,
-        "phone": document.querySelector('.field [name="phone"]').value,
-    };
+	e.preventDefault();
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/write-data");
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(row));
+	
+	function splitCommas(s) {
+        return s.split(',').map((token) => token.trim());
+    }
+
+	function getFieldText(name) {
+		return document.querySelector('.field [name="' + name + '"]').value;
+	}
+	const mf = {
+		"email": getFieldText('email'),
+		"name": getFieldText('name'),
+		"pin": getFieldText('pin'),
+		//"allergy": document.querySelector('.field [name="allergy"]'),
+		"allergy" : splitCommas(getFieldText('allergy')),
+	};
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/write-data");
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	//console.debug(mf);
+	xhr.send(JSON.stringify(mf));
+
+	
 })
